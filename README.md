@@ -10,6 +10,15 @@ An app's own applicationmetadata is always authoritative. This list is for knowi
 
 It is published in both ESM and CommonJS builds, with TypeScript declarations.
 
+## Who uses it
+
+- **`altinn-studio-custom-components-api`** projects it onto the `appOwner`/`appName` field names that repository has always used, and reads `layoutFiles` for the few apps that name them.
+- **`altinn-studio-api-tools`** narrows it to the fields its `GET /catalogue` endpoint serves, which is everything except `layoutFiles`.
+
+Neither holds a list of its own any more. Add an app here, publish, and bump the dependency in both.
+
+They also share [`@arkitektum/ftpb-testmotor-client`](https://github.com/Arkitektum/ftpb-testmotor-client), which reads example data for the apps listed here. The two packages are independent, and a consumer can use either alone.
+
 ## Installation
 
 ```bash
