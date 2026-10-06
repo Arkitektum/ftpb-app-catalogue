@@ -54,13 +54,13 @@ const apps = appCatalogue.map((entry) => ({
 
 ## API
 
-| Export | Kind | Purpose |
-| ------ | ---- | ------- |
-| `appCatalogue` | constant | Every app, ordered by organisation and name. |
-| `findApp(org, app, catalogue?)` | function | One app, or undefined when the catalogue does not name it. Both parts must match. |
-| `subformApps(catalogue?)` | function | Each declared subform app once, in the order first declared. |
-| `appsDeclaringSubform(dataType, catalogue?)` | function | Every app declaring that subform, which may be none. |
-| `CatalogueApp`, `CatalogueSubform`, `LayoutFile` | types | The shapes above, for TypeScript callers. |
+| Export                                           | Kind     | Purpose                                                                           |
+| ------------------------------------------------ | -------- | --------------------------------------------------------------------------------- |
+| `appCatalogue`                                   | constant | Every app, ordered by organisation and name.                                      |
+| `findApp(org, app, catalogue?)`                  | function | One app, or undefined when the catalogue does not name it. Both parts must match. |
+| `subformApps(catalogue?)`                        | function | Each declared subform app once, in the order first declared.                      |
+| `appsDeclaringSubform(dataType, catalogue?)`     | function | Every app declaring that subform, which may be none.                              |
+| `CatalogueApp`, `CatalogueSubform`, `LayoutFile` | types    | The shapes above, for TypeScript callers.                                         |
 
 Each function takes an optional catalogue as its last argument, defaulting to the whole list. That is there for tests, which should not have to stand up the real list to check a caller's own logic.
 

@@ -28,7 +28,10 @@ describe("the catalogue", () => {
     it("keeps the apps in order by organisation and name, so a diff of this file reads as one", () => {
         const names = appCatalogue.map((entry) => `${entry.org}/${entry.app}`);
 
-        assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b)));
+        assert.deepEqual(
+            names,
+            [...names].sort((a, b) => a.localeCompare(b))
+        );
     });
 });
 

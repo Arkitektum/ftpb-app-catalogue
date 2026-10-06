@@ -55,17 +55,13 @@ export const appCatalogue: CatalogueApp[] = [
         org: "dibk",
         app: "fa-v3",
         dataType: "FA",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
         app: "fa-v5",
         dataType: "FA",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
@@ -96,26 +92,20 @@ export const appCatalogue: CatalogueApp[] = [
         org: "dibk",
         app: "ig-v3",
         dataType: "IG",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
         app: "ig-v5",
         dataType: "IG",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
         app: "innsending-planforslag",
         dataType: "OversendelseReguleringsplanforslag",
         subForms: [],
-        layoutFiles: [
-            { name: "DisplayLayout", path: "App/ui/hovedskjema/layouts/DisplayLayout.json" }
-        ]
+        layoutFiles: [{ name: "DisplayLayout", path: "App/ui/hovedskjema/layouts/DisplayLayout.json" }]
     },
     {
         org: "dibk",
@@ -127,34 +117,26 @@ export const appCatalogue: CatalogueApp[] = [
         org: "dibk",
         app: "mb-v3",
         dataType: "MB",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
         app: "mb-v5",
         dataType: "MB",
-        subForms: [
-            { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }
-        ]
+        subForms: [{ org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" }]
     },
     {
         org: "dibk",
         app: "nabovarsel-svar-v5",
         dataType: "NVS",
         subForms: [],
-        layoutFiles: [
-            { name: "SvarSkjemaPdf", path: "App/ui/svarskjema/layouts/SvarSkjemaPdf.json" }
-        ]
+        layoutFiles: [{ name: "SvarSkjemaPdf", path: "App/ui/svarskjema/layouts/SvarSkjemaPdf.json" }]
     },
     {
         org: "dibk",
         app: "nabovarsel-v5",
         dataType: "NV",
-        subForms: [
-            { org: "dibk", app: "dispensasjonsvarsel-v1", dataType: "DispensasjonsvarselDataV1" }
-        ]
+        subForms: [{ org: "dibk", app: "dispensasjonsvarsel-v1", dataType: "DispensasjonsvarselDataV1" }]
     },
     {
         org: "dibk",
@@ -215,8 +197,6 @@ export const appCatalogue: CatalogueApp[] = [
         app: "varselplanoppstartuttalelse-v3",
         dataType: "Planuttalelse",
         subForms: [],
-        layoutFiles: [
-            { name: "UttalelseSkjemaPdf", path: "App/ui/Planuttalelse/layouts/UttalelseSkjemaPdf.json" }
-        ]
+        layoutFiles: [{ name: "UttalelseSkjemaPdf", path: "App/ui/Planuttalelse/layouts/UttalelseSkjemaPdf.json" }]
     }
 ];
