@@ -87,3 +87,7 @@ yarn build
 ```
 
 Tests run on Node's own test runner against the TypeScript sources, so there is no test framework or transform step to install. Node 24 or later is required.
+
+## Licence
+
+[MIT](./LICENSE)
