@@ -1,6 +1,6 @@
 {
     "name": "@arkitektum/ftpb-app-catalogue",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "The Altinn Studio apps this tooling knows about, and the data type each one's form data lives under",
     "type": "module",
     "main": "./dist/index.cjs",
