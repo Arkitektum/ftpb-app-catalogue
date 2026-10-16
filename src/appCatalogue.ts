@@ -199,5 +199,12 @@ export const appCatalogue: CatalogueApp[] = [
         dataType: "Planuttalelse",
         subForms: [],
         layoutFiles: [{ name: "UttalelseSkjemaPdf", path: "App/ui/Planuttalelse/layouts/UttalelseSkjemaPdf.json" }]
+    },
+    {
+        org: "dibk",
+        app: "varselplanoppstartuttalelse-v4",
+        dataType: "Planuttalelse",
+        subForms: [],
+        layoutFiles: [{ name: "UttalelseSkjemaPdf", path: "App/ui/Planuttalelse/layouts/UttalelseSkjemaPdf.json" }]
     }
 ];
