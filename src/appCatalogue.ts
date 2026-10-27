@@ -205,6 +205,9 @@ export const appCatalogue: CatalogueApp[] = [
         app: "varselplanoppstartuttalelse-v4",
         dataType: "Planuttalelse",
         subForms: [],
-        layoutFiles: [{ name: "UttalelseSkjemaPdf", path: "App/ui/Planuttalelse/layouts/UttalelseSkjemaPdf.json" }]
+        layoutFiles: [
+            { name: "Uttalelse", path: "App/ui/form/layouts/Uttalelse.json" },
+            { name: "UttalelsePdf", path: "App/ui/form/layouts/UttalelsePdf.json" }
+        ]
     }
 ];
