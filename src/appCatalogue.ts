@@ -77,7 +77,11 @@ export const appCatalogue: CatalogueApp[] = [
         org: "dibk",
         app: "hoeringettersyn-v2",
         dataType: "HoeringOgOffentligEttersyn",
-        subForms: []
+        subForms: [],
+        layoutFiles: [
+            { name: "DisplayLayout", path: "App/ui/form/layouts/DisplayLayout.json" },
+            { name: "eiendommerSomInngaarIPlanomraadet", path: "App/ui/eiendommerIPlanomraadet/layouts/eiendommerSomInngaarIPlanomraadet.json" }
+        ]
     },
     {
         org: "dibk",
