@@ -165,6 +165,7 @@ export const appCatalogue: CatalogueApp[] = [
         dataType: "SU",
         subForms: [
             { org: "dibk", app: "dispensasjonssoeknad-v1", dataType: "DispensasjonssoeknadDataV1" },
+            { org: "dibk", app: "endring-av-rolle-i-byggesaken-v1", dataType: "EndringAvRolleIByggesakenDataV1" },
             { org: "dibk", app: "gjennomfoeringsplan-v7", dataType: "GjennomfoeringsplanDataV7" },
             { org: "dibk", app: "gjenpart-nabovarsel-v3", dataType: "GjenpartNabovarselDataV3" }
         ]
