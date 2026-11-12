@@ -3,8 +3,8 @@ import type { CatalogueApp } from "./types.ts";
 /**
  * Every Altinn Studio app this tooling knows about, and the data type each one's form data lives under.
  *
- * This is the one list. Both the components API and the API tools read it from here, because they held their own
- * copies until 2026-09-24 and the copies had already drifted apart by one app.
+ * This is the one list. Both the components API and the API tools read it from here, so they cannot disagree about
+ * which apps there are.
  *
  * An app's own applicationmetadata is always authoritative. This list is for knowing which apps to look at before
  * any of them has been asked.
