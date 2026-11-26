@@ -2,22 +2,20 @@
 
 ![CI](https://github.com/Arkitektum/ftpb-app-catalogue/actions/workflows/ci.yml/badge.svg) ![npm version](https://img.shields.io/npm/v/@arkitektum/ftpb-app-catalogue.svg)
 
-The Altinn Studio apps this tooling knows about, and the data type each one's form data lives under.
+The Altinn Studio apps the FtPB tooling knows about, the data type each app's form data lives under, and the subform apps each one carries. It is the shared list for the repositories that need it, so they agree about which apps there are.
 
-It is the one list for every repository that needs it, so they cannot disagree about which apps there are.
-
-An app's own applicationmetadata is always authoritative. This list is for knowing which apps to look at before any of them has been asked, and for guessing a data type before an app has been probed.
+An app's own applicationmetadata is authoritative. This list is for knowing which apps to look at before any of them has been asked, and for guessing a data type before an app has been probed.
 
 It is published in both ESM and CommonJS builds, with TypeScript declarations.
 
 ## Who uses it
 
-- **`altinn-studio-custom-components-api`** projects it onto the `appOwner`/`appName` field names that repository uses, and reads `layoutFiles` for the few apps that name them.
+- **`altinn-studio-custom-components-api`** maps it onto the `appOwner`/`appName` field names that repository uses, and reads `layoutFiles` for the apps that name them.
 - **`altinn-studio-api-tools`** narrows it to the fields its `GET /catalogue` endpoint serves, which is everything except `layoutFiles`.
 
-Neither holds a list of its own. Add an app here, publish, and bump the dependency in both.
+To add an app, add it here, publish, and bump the dependency in both.
 
-They also share [`@arkitektum/ftpb-testmotor-client`](https://github.com/Arkitektum/ftpb-testmotor-client), which reads example data for the apps listed here. The two packages are independent, and a consumer can use either alone.
+Example data for the apps listed here is read with [`@arkitektum/ftpb-testmotor-client`](https://github.com/Arkitektum/ftpb-testmotor-client). The two packages are independent.
 
 ## Installation
 
@@ -42,7 +40,7 @@ const disp = findApp("dibk", "disp-v1");
 const subforms = subformApps();
 ```
 
-Consumers that spell the fields differently project the list on the way in rather than editing it here.
+Consumers that spell the fields differently map the list when they read it.
 
 ```js
 const apps = appCatalogue.map((entry) => ({
@@ -59,22 +57,19 @@ const apps = appCatalogue.map((entry) => ({
 | `appCatalogue`                                   | constant | Every app, ordered by organisation and name.                                      |
 | `findApp(org, app, catalogue?)`                  | function | One app, or undefined when the catalogue does not name it. Both parts must match. |
 | `subformApps(catalogue?)`                        | function | Each declared subform app once, in the order first declared.                      |
-| `appsDeclaringSubform(dataType, catalogue?)`     | function | Every app declaring that subform, which may be none.                              |
-| `CatalogueApp`, `CatalogueSubform`, `LayoutFile` | types    | The shapes above, for TypeScript callers.                                         |
+| `appsDeclaringSubform(dataType, catalogue?)`     | function | Every app declaring a subform with that data type, which may be none.             |
+| `CatalogueApp`, `CatalogueSubform`, `LayoutFile` | types    | The shapes described under Data, for TypeScript callers.                          |
 
-Each function takes an optional catalogue as its last argument, defaulting to the whole list. That is there for tests, which should not have to stand up the real list to check a caller's own logic.
+Each function takes an optional catalogue as its last argument, defaulting to the whole list, so tests can pass a small catalogue of their own.
 
-## What belongs here
+## Data
 
-An app's identity and the data type its form data lives under, for every app the tooling looks at. A subform app is named by the apps that carry it rather than listed separately, since a subform with no parent is not something this tooling reaches.
+Each `CatalogueApp` has:
 
-`layoutFiles` is carried for the few apps where naming the layouts saves guessing at them. It is absent for most, which are read through whatever their repository holds.
-
-What does not belong here is anything an app answers for itself. Example form data, layout contents and validation results are all fetched, and a copy of any of them would be stale the day after it was written.
-
-## The list is checked, not just stored
-
-`yarn test` asserts what a catalogue has to be true for, rather than restating its contents: every app named once, in order; every subform filed under the same data type wherever it is declared; no app appearing both in its own right and as a subform; every layout file named after the file it points at. A list edited by hand fails these before it reaches a consumer.
+- `org` and `app`: the app's organisation and name, as Altinn Studio spells them.
+- `dataType`: the data type the app's main form data lives under.
+- `subForms`: the subform apps the app carries, each as `{ org, app, dataType }`. Empty when it has none. A subform app is listed only under the apps that carry it, never as an app in its own right.
+- `layoutFiles` (optional): the layout files worth reading for the app, each as `{ name, path }`, where `name` is the file name without `.json` and `path` is where the file sits in the app's repository. Absent for most apps.
 
 ## Development
 
@@ -84,9 +79,13 @@ yarn lint
 yarn typecheck
 yarn test
 yarn build
+yarn format        # prettier --write
+yarn format:check  # prettier --check
 ```
 
-Tests run on Node's own test runner against the TypeScript sources, so there is no test framework or transform step to install. Node 24 or later is required.
+`yarn test` runs Node's built-in test runner against the TypeScript sources. It checks the rules the list has to follow: every app named once and kept in order by organisation and name, every subform filed under the same data type wherever it is declared, no app listed both in its own right and as a subform, and every layout file named after the file it points at.
+
+Node 24 or later is required.
 
 ## Licence
 
